@@ -1,0 +1,95 @@
+UNİVERSİTET: Xəzər Universiteti
+
+FAKTLAR:
+Universitetin faktları
+1991
+Təsis tarixi
+40
+Bakalavr ixtisası
+3
+Kampus
+Özəl
+Tipi
+Rektor:
+Raziya İsayeva
+Khazar ixtisaslar 2026 —
+
+İXTİSASLAR:
+
+- Kompüter elmləri (DİM I qrupu, orta keçid balı: 620)
+  Alqoritmlər, data strukturları, süni intellekt və proqramlaşdırma nəzəriyyəsi üzrə nüvə informatika proqramı.
+
+- Kompüter mühəndisliyi (DİM I qrupu, orta keçid balı: 600)
+  Aparat və proqram təminatının birgə mühəndisliyi — embedded sistemlər, robot texnikası, FPGA və yüksək-performanslı proqramlaşdırma.
+
+- İnformasiya təhlükəsizliyi (DİM I qrupu, orta keçid balı: 600)
+  Kibertəhlükəsizlik, kriptoqrafiya və informasiya müdafiəsi üzrə ixtisas.
+
+- İnşaat mühəndisliyi (DİM I qrupu, orta keçid balı: 510)
+  Bina, yol, körpü və digər infrastruktur obyektlərinin mühəndislik hesablamaları və idarə olunması.
+
+- Elektrik və elektronika mühəndisliyi (DİM I qrupu, orta keçid balı: 540)
+  Elektrik sistemlərinin, elektronika avadanlıqlarının və enerji şəbəkəsinin dizaynı üzrə ixtisas.
+
+- Mexanika mühəndisliyi (DİM I qrupu, orta keçid balı: 500)
+  Mexaniki sistemlər, istehsal texnologiyaları və maşınqayırma üzrə klassik mühəndislik ixtisası.
+
+- Kimya mühəndisliyi (DİM I qrupu, orta keçid balı: 490)
+  Kimyəvi proseslərin sənaye miqyasında dizaynı — neft emalı, petrokimya, əczaçılıq istehsalı.
+
+- Neft-qaz mühəndisliyi (DİM I qrupu, orta keçid balı: 560)
+  Karbohidrogen yataqlarının kəşfiyyatı, qazılması, istehsalı və emalı üzrə ixtisas.
+
+- Riyaziyyat (DİM I qrupu, orta keçid balı: 480)
+  Nəzəri və tətbiqi riyaziyyat üzrə bakalavr proqramı.
+
+- Fizika (DİM I qrupu, orta keçid balı: 470)
+  Təbiətin fundamental qanunlarının elmi öyrənilməsi üzrə ixtisas.
+
+- Maliyyə (DİM II qrupu, orta keçid balı: 540)
+  Korporativ və şəxsi maliyyə, investisiya, risk idarəçiliyi və fond bazarları üzrə ixtisas.
+
+- Mühasibat (DİM II qrupu, orta keçid balı: 480)
+  Maliyyə uçotu, audit və vergi sistemi üzrə ixtisas.
+
+- İqtisadiyyat (DİM II qrupu, orta keçid balı: 520)
+  Makroiqtisadi siyasət, bazar nəzəriyyəsi və iqtisadi analiz üzrə ixtisas.
+
+- Biznesin idarə edilməsi (DİM II qrupu, orta keçid balı: 520)
+  Menecment, strategiya, əməliyyat və insan resursları üzrə geniş biznes ixtisası (BBA).
+
+- Marketinq (DİM II qrupu, orta keçid balı: 500)
+  İstehlakçı davranışı, brend strategiyası və rəqəmsal marketinq üzrə ixtisas.
+
+- Menecment (DİM II qrupu, orta keçid balı: 490)
+  İnsan, proses və resursların effektiv idarə edilməsi üzrə tətbiqi biznes ixtisası.
+
+- Beynəlxalq münasibətlər (DİM III qrupu, orta keçid balı: 620)
+  Diplomatiya, beynəlxalq siyasət və qlobal təşkilatlar üzrə humanitar ixtisas.
+
+- Psixologiya (DİM III qrupu, orta keçid balı: 530)
+  İnsan davranışı, idrak və emosiyaların öyrənilməsi üzrə ixtisas.
+
+- Tərcümə (DİM III qrupu, orta keçid balı: 520)
+  Yazılı və şifahi tərcümə üzrə ixtisas.
+
+- Filologiya (DİM III qrupu, orta keçid balı: 490)
+  Dil və ədəbiyyatın elmi tədqiqi üzrə ixtisas.
+
+- Politologiya (DİM III qrupu, orta keçid balı: 560)
+  Siyasi sistemlər, hakimiyyət və ictimai qərar qəbulu üzrə ixtisas.
+
+- Tarix (DİM III qrupu, orta keçid balı: 440)
+  Azərbaycan və dünya tarixinin elmi öyrənilməsi üzrə ixtisas.
+
+- Biologiya (DİM IV qrupu, orta keçid balı: 470)
+  Canlı orqanizmlərin elmi öyrənilməsi üzrə ixtisas.
+
+- Biotexnologiya (DİM IV qrupu, orta keçid balı: 520)
+  Canlı orqanizmlərdən texnoloji və sənaye məhsullarının yaradılması üzrə ixtisas.
+
+- Memarlıq (DİM V qrupu, orta keçid balı: 540)
+  Bina və şəhər dizaynı, memarlıq layihələndirmə üzrə yaradıcı ixtisas.
+
+- Dizayn (DİM V qrupu, orta keçid balı: 480)
+  Qrafik, interyer, sənaye və rəqəmsal dizayn üzrə yaradıcı ixtisas.

@@ -1,0 +1,38 @@
+UNİVERSİTET: Bakı Ali Neft Məktəbi
+
+FAKTLAR:
+Universitetin faktları
+2011
+Təsis tarixi
+9
+Bakalavr ixtisası
+1
+Kampus
+Dövlət
+Tipi
+Rektor:
+Elmar Qasımov
+BANM ixtisaslar 2026 —
+
+İXTİSASLAR:
+
+- Kompüter elmləri (DİM I qrupu, orta keçid balı: 620)
+  Alqoritmlər, data strukturları, süni intellekt və proqramlaşdırma nəzəriyyəsi üzrə nüvə informatika proqramı.
+
+- Kompüter mühəndisliyi (DİM I qrupu, orta keçid balı: 600)
+  Aparat və proqram təminatının birgə mühəndisliyi — embedded sistemlər, robot texnikası, FPGA və yüksək-performanslı proqramlaşdırma.
+
+- İnformasiya təhlükəsizliyi (DİM I qrupu, orta keçid balı: 600)
+  Kibertəhlükəsizlik, kriptoqrafiya və informasiya müdafiəsi üzrə ixtisas.
+
+- Kimya mühəndisliyi (DİM I qrupu, orta keçid balı: 490)
+  Kimyəvi proseslərin sənaye miqyasında dizaynı — neft emalı, petrokimya, əczaçılıq istehsalı.
+
+- Neft-qaz mühəndisliyi (DİM I qrupu, orta keçid balı: 560)
+  Karbohidrogen yataqlarının kəşfiyyatı, qazılması, istehsalı və emalı üzrə ixtisas.
+
+- Maliyyə (DİM II qrupu, orta keçid balı: 540)
+  Korporativ və şəxsi maliyyə, investisiya, risk idarəçiliyi və fond bazarları üzrə ixtisas.
+
+- Biznesin idarə edilməsi (DİM II qrupu, orta keçid balı: 520)
+  Menecment, strategiya, əməliyyat və insan resursları üzrə geniş biznes ixtisası (BBA).

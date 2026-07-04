@@ -1,0 +1,74 @@
+UNİVERSİTET: Azərbaycan Dövlət İqtisad Universiteti
+
+FAKTLAR:
+Universitetin faktları
+1930
+Təsis tarixi
+34
+Bakalavr ixtisası
+4
+Kampus
+Dövlət
+Tipi
+Rektor:
+Ədalət Muradov
+UNEC ixtisaslar 2026 —
+
+İXTİSASLAR:
+
+- Kompüter elmləri (DİM I qrupu, orta keçid balı: 620)
+  Alqoritmlər, data strukturları, süni intellekt və proqramlaşdırma nəzəriyyəsi üzrə nüvə informatika proqramı.
+
+- İnformasiya texnologiyaları (DİM I qrupu, orta keçid balı: 520)
+  Praktik yönümlü İT proqramı — şəbəkələr, sistem idarəçiliyi, web-cloud texnologiyaları və biznes-İT inteqrasiyası.
+
+- Kompüter mühəndisliyi (DİM I qrupu, orta keçid balı: 600)
+  Aparat və proqram təminatının birgə mühəndisliyi — embedded sistemlər, robot texnikası, FPGA və yüksək-performanslı proqramlaşdırma.
+
+- İnformasiya təhlükəsizliyi (DİM I qrupu, orta keçid balı: 600)
+  Kibertəhlükəsizlik, kriptoqrafiya və informasiya müdafiəsi üzrə ixtisas.
+
+- Elektrik və elektronika mühəndisliyi (DİM I qrupu, orta keçid balı: 540)
+  Elektrik sistemlərinin, elektronika avadanlıqlarının və enerji şəbəkəsinin dizaynı üzrə ixtisas.
+
+- Sənaye mühəndisliyi (DİM I qrupu, orta keçid balı: 520)
+  İstehsal və xidmət proseslərinin optimallaşdırılması üzrə ixtisas.
+
+- Materiallar mühəndisliyi (DİM I qrupu, orta keçid balı: 520)
+  Metal, polimer, keramika və kompozit materialların strukturu və istehsalı üzrə ixtisas.
+
+- Maliyyə (DİM II qrupu, orta keçid balı: 540)
+  Korporativ və şəxsi maliyyə, investisiya, risk idarəçiliyi və fond bazarları üzrə ixtisas.
+
+- Mühasibat (DİM II qrupu, orta keçid balı: 480)
+  Maliyyə uçotu, audit və vergi sistemi üzrə ixtisas.
+
+- İqtisadiyyat (DİM II qrupu, orta keçid balı: 520)
+  Makroiqtisadi siyasət, bazar nəzəriyyəsi və iqtisadi analiz üzrə ixtisas.
+
+- Biznesin idarə edilməsi (DİM II qrupu, orta keçid balı: 520)
+  Menecment, strategiya, əməliyyat və insan resursları üzrə geniş biznes ixtisası (BBA).
+
+- Marketinq (DİM II qrupu, orta keçid balı: 500)
+  İstehlakçı davranışı, brend strategiyası və rəqəmsal marketinq üzrə ixtisas.
+
+- Menecment (DİM II qrupu, orta keçid balı: 490)
+  İnsan, proses və resursların effektiv idarə edilməsi üzrə tətbiqi biznes ixtisası.
+
+- Beynəlxalq ticarət (DİM II qrupu, orta keçid balı: 540)
+  Xarici iqtisadi əlaqələr, beynəlxalq müqavilələr və valyuta əməliyyatları üzrə ixtisas.
+
+- Beynəlxalq münasibətlər (DİM III qrupu, orta keçid balı: 620)
+  Diplomatiya, beynəlxalq siyasət və qlobal təşkilatlar üzrə humanitar ixtisas.
+
+- Dövlət və bələdiyyə idarəetməsi (DİM III qrupu, orta keçid balı: 520)
+  Dövlət idarəçiliyi, ictimai xidmət və bələdiyyə menecmenti üzrə ixtisas.
+
+- Sosial iş (DİM III qrupu, orta keçid balı: 450)
+  Ailə, uşaq qoruması və sosial risk qruplarına yardım üzrə tətbiqi ixtisas.
+
+- Ekologiya (DİM IV qrupu, orta keçid balı: 490)
+  Ekosistemlər, ətraf mühitin çirklənməsi və iqlim dəyişikliyi üzrə ixtisas.
+
+- Dizayn (DİM V qrupu, orta keçid balı: 480)
+  Qrafik, interyer, sənaye və rəqəmsal dizayn üzrə yaradıcı ixtisas.

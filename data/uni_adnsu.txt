@@ -1,0 +1,77 @@
+UNİVERSİTET: Azərbaycan Dövlət Neft və Sənaye Universiteti
+
+FAKTLAR:
+Universitetin faktları
+1920
+Təsis tarixi
+31
+Bakalavr ixtisası
+2
+Kampus
+Dövlət
+Tipi
+Rektor:
+Rüfət Əzizov
+ADNSU ixtisaslar 2026 —
+
+İXTİSASLAR:
+
+- Kompüter elmləri (DİM I qrupu, orta keçid balı: 620)
+  Alqoritmlər, data strukturları, süni intellekt və proqramlaşdırma nəzəriyyəsi üzrə nüvə informatika proqramı.
+
+- İnformasiya texnologiyaları (DİM I qrupu, orta keçid balı: 520)
+  Praktik yönümlü İT proqramı — şəbəkələr, sistem idarəçiliyi, web-cloud texnologiyaları və biznes-İT inteqrasiyası.
+
+- Kompüter mühəndisliyi (DİM I qrupu, orta keçid balı: 600)
+  Aparat və proqram təminatının birgə mühəndisliyi — embedded sistemlər, robot texnikası, FPGA və yüksək-performanslı proqramlaşdırma.
+
+- İnformasiya təhlükəsizliyi (DİM I qrupu, orta keçid balı: 600)
+  Kibertəhlükəsizlik, kriptoqrafiya və informasiya müdafiəsi üzrə ixtisas.
+
+- İnşaat mühəndisliyi (DİM I qrupu, orta keçid balı: 510)
+  Bina, yol, körpü və digər infrastruktur obyektlərinin mühəndislik hesablamaları və idarə olunması.
+
+- Elektrik və elektronika mühəndisliyi (DİM I qrupu, orta keçid balı: 540)
+  Elektrik sistemlərinin, elektronika avadanlıqlarının və enerji şəbəkəsinin dizaynı üzrə ixtisas.
+
+- Mexanika mühəndisliyi (DİM I qrupu, orta keçid balı: 500)
+  Mexaniki sistemlər, istehsal texnologiyaları və maşınqayırma üzrə klassik mühəndislik ixtisası.
+
+- Kimya mühəndisliyi (DİM I qrupu, orta keçid balı: 490)
+  Kimyəvi proseslərin sənaye miqyasında dizaynı — neft emalı, petrokimya, əczaçılıq istehsalı.
+
+- Neft-qaz mühəndisliyi (DİM I qrupu, orta keçid balı: 560)
+  Karbohidrogen yataqlarının kəşfiyyatı, qazılması, istehsalı və emalı üzrə ixtisas.
+
+- Mexatronika və robototexnika (DİM I qrupu, orta keçid balı: 540)
+  Mexanika, elektronika və proqramlaşdırmanın kəsişməsində avtomatlaşdırılmış sistemlərin və robotların dizaynı.
+
+- Geologiya (DİM I qrupu, orta keçid balı: 470)
+  Yer qabığı, faydalı qazıntılar və geoloji proseslərin öyrənilməsi üzrə ixtisas.
+
+- Mədən mühəndisliyi (DİM I qrupu, orta keçid balı: 500)
+  Faydalı qazıntıların kəşfiyyatı, çıxarılması və ilkin emalı üzrə mühəndislik ixtisası.
+
+- Sənaye mühəndisliyi (DİM I qrupu, orta keçid balı: 520)
+  İstehsal və xidmət proseslərinin optimallaşdırılması üzrə ixtisas.
+
+- Materiallar mühəndisliyi (DİM I qrupu, orta keçid balı: 520)
+  Metal, polimer, keramika və kompozit materialların strukturu və istehsalı üzrə ixtisas.
+
+- İqtisadiyyat (DİM II qrupu, orta keçid balı: 520)
+  Makroiqtisadi siyasət, bazar nəzəriyyəsi və iqtisadi analiz üzrə ixtisas.
+
+- Biznesin idarə edilməsi (DİM II qrupu, orta keçid balı: 520)
+  Menecment, strategiya, əməliyyat və insan resursları üzrə geniş biznes ixtisası (BBA).
+
+- Marketinq (DİM II qrupu, orta keçid balı: 500)
+  İstehlakçı davranışı, brend strategiyası və rəqəmsal marketinq üzrə ixtisas.
+
+- Menecment (DİM II qrupu, orta keçid balı: 490)
+  İnsan, proses və resursların effektiv idarə edilməsi üzrə tətbiqi biznes ixtisası.
+
+- Beynəlxalq ticarət (DİM II qrupu, orta keçid balı: 540)
+  Xarici iqtisadi əlaqələr, beynəlxalq müqavilələr və valyuta əməliyyatları üzrə ixtisas.
+
+- Ekologiya (DİM IV qrupu, orta keçid balı: 490)
+  Ekosistemlər, ətraf mühitin çirklənməsi və iqlim dəyişikliyi üzrə ixtisas.

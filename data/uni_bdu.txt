@@ -1,0 +1,95 @@
+UNİVERSİTET: Bakı Dövlət Universiteti
+
+FAKTLAR:
+Universitetin faktları
+1919
+Təsis tarixi
+82
+Bakalavr ixtisası
+2
+Kampus
+Dövlət
+Tipi
+Rektor:
+Elçin Babayev
+BDU ixtisaslar 2026 —
+
+İXTİSASLAR:
+
+- Kompüter elmləri (DİM I qrupu, orta keçid balı: 620)
+  Alqoritmlər, data strukturları, süni intellekt və proqramlaşdırma nəzəriyyəsi üzrə nüvə informatika proqramı.
+
+- İnformasiya təhlükəsizliyi (DİM I qrupu, orta keçid balı: 600)
+  Kibertəhlükəsizlik, kriptoqrafiya və informasiya müdafiəsi üzrə ixtisas.
+
+- Kimya mühəndisliyi (DİM I qrupu, orta keçid balı: 490)
+  Kimyəvi proseslərin sənaye miqyasında dizaynı — neft emalı, petrokimya, əczaçılıq istehsalı.
+
+- Riyaziyyat (DİM I qrupu, orta keçid balı: 480)
+  Nəzəri və tətbiqi riyaziyyat üzrə bakalavr proqramı.
+
+- Fizika (DİM I qrupu, orta keçid balı: 470)
+  Təbiətin fundamental qanunlarının elmi öyrənilməsi üzrə ixtisas.
+
+- Geologiya (DİM I qrupu, orta keçid balı: 470)
+  Yer qabığı, faydalı qazıntılar və geoloji proseslərin öyrənilməsi üzrə ixtisas.
+
+- Mədən mühəndisliyi (DİM I qrupu, orta keçid balı: 500)
+  Faydalı qazıntıların kəşfiyyatı, çıxarılması və ilkin emalı üzrə mühəndislik ixtisası.
+
+- Maliyyə (DİM II qrupu, orta keçid balı: 540)
+  Korporativ və şəxsi maliyyə, investisiya, risk idarəçiliyi və fond bazarları üzrə ixtisas.
+
+- İqtisadiyyat (DİM II qrupu, orta keçid balı: 520)
+  Makroiqtisadi siyasət, bazar nəzəriyyəsi və iqtisadi analiz üzrə ixtisas.
+
+- Biznesin idarə edilməsi (DİM II qrupu, orta keçid balı: 520)
+  Menecment, strategiya, əməliyyat və insan resursları üzrə geniş biznes ixtisası (BBA).
+
+- Menecment (DİM II qrupu, orta keçid balı: 490)
+  İnsan, proses və resursların effektiv idarə edilməsi üzrə tətbiqi biznes ixtisası.
+
+- Beynəlxalq ticarət (DİM II qrupu, orta keçid balı: 540)
+  Xarici iqtisadi əlaqələr, beynəlxalq müqavilələr və valyuta əməliyyatları üzrə ixtisas.
+
+- Hüquq (DİM III qrupu, orta keçid balı: 620)
+  Azərbaycan Respublikasının hüquq sistemi, qanunvericilik və məhkəmə praktikası üzrə proqram.
+
+- Beynəlxalq münasibətlər (DİM III qrupu, orta keçid balı: 620)
+  Diplomatiya, beynəlxalq siyasət və qlobal təşkilatlar üzrə humanitar ixtisas.
+
+- Psixologiya (DİM III qrupu, orta keçid balı: 530)
+  İnsan davranışı, idrak və emosiyaların öyrənilməsi üzrə ixtisas.
+
+- Tərcümə (DİM III qrupu, orta keçid balı: 520)
+  Yazılı və şifahi tərcümə üzrə ixtisas.
+
+- Filologiya (DİM III qrupu, orta keçid balı: 490)
+  Dil və ədəbiyyatın elmi tədqiqi üzrə ixtisas.
+
+- Jurnalistika (DİM III qrupu, orta keçid balı: 500)
+  Xəbər media, televiziya, radio və rəqəmsal jurnalistika üzrə ixtisas.
+
+- Sosiologiya (DİM III qrupu, orta keçid balı: 470)
+  Cəmiyyətin strukturu, qrup davranışı və sosial dəyişmənin öyrənilməsi üzrə ixtisas.
+
+- Politologiya (DİM III qrupu, orta keçid balı: 560)
+  Siyasi sistemlər, hakimiyyət və ictimai qərar qəbulu üzrə ixtisas.
+
+- Tarix (DİM III qrupu, orta keçid balı: 440)
+  Azərbaycan və dünya tarixinin elmi öyrənilməsi üzrə ixtisas.
+
+- Fəlsəfə (DİM III qrupu, orta keçid balı: 440)
+  Varlıq, idrak, etika və məntiq üzrə nəzəri ixtisas.
+
+- Sosial iş (DİM III qrupu, orta keçid balı: 450)
+  Ailə, uşaq qoruması və sosial risk qruplarına yardım üzrə tətbiqi ixtisas.
+
+- Biologiya (DİM IV qrupu, orta keçid balı: 470)
+  Canlı orqanizmlərin elmi öyrənilməsi üzrə ixtisas.
+
+- Biotexnologiya (DİM IV qrupu, orta keçid balı: 520)
+  Canlı orqanizmlərdən texnoloji və sənaye məhsullarının yaradılması üzrə ixtisas.
+
+- Ekologiya (DİM IV qrupu, orta keçid balı: 490)
+  Ekosistemlər, ətraf mühitin çirklənməsi və iqlim dəyişikliyi üzrə ixtisas.
