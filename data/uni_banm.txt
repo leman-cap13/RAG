@@ -1,5 +1,30 @@
 UNİVERSİTET: Bakı Ali Neft Məktəbi
 
+
+BANM-in tarixi
+
+Bakı Ali Neft Məktəbi dövlət ali təhsil müəssisəsi statusunda Azərbaycan Respublikasının Prezidenti cənab İlham Əliyevin “Azərbaycan Respublikası Dövlət Neft Şirkətinin strukturunda dəyişiklik edilməsi haqqında” 29 noyabr 2011-ci il tarixli 539 nömrəli Fərmanı ilə yaradılıb.
+
+Bakı Ali Neft Məktəbi Azərbaycanda və xarici ölkələrdə fəaliyyətini genişləndirən SOCAR-ın və ölkənin digər sənaye sahələrinin müasir tədris proqramları və təlim texnologiyaları əsasında ingilis dilində təhsil almış yüksəkixtisaslı mühəndis kadrlarına olan ehtiyaclarını ödəmək məqsədilə təsis edilib.
+
+BANM ötən müddət ərzində həm də ən müasir tələblərə cavab verən infrastruktur yarada, idarəetmə və pedaqoji heyəti formalaşdıra bilib, professor-müəllim heyətinin tədrisdə, tələbələrin isə təhsildə motivasiyalarını yüksəltmək üçün silsilə həvəsləndirici və səfərbəredici tədbirlər həyata keçirib.
+
+Yerli və xarici şirkətlərlə əməkdaşlıq, peşəkar mütəxəssislər tərəfindən vaxtaşırı təlim və mühazirələrin təşkili, tələbələrinin təhsillə yanaşı, həm də müxtəlif ictimai layihələrdə yüksək nəticələr göstərməsi, qısa müddət ərzində ictimaiyyət arasında qazanılan etibar və bu kimi digər nailiyyətlər Azərbaycanın ən yüksək intellektli gəncliyini BANM-də təhsil almağa cəlb edir.
+
+Yarandığı ildən etibarən BANM ən yüksək nüfuzlu ali təhsil müəssisəsinə çevrilə bilib və Azərbaycanda peşəkar mühəndis kadrların hazırlanmasında liderdir. Ali Məktəbdə tədris prosesi istehsalatla sıx əlaqədə həyata keçirilir, tədris proqramlarının, nəzəri predmetlərin daha dərindən mənimsənilməsi məqsədilə tələbələr SOCAR-ın müvafiq profilli istehsalat müəssisələrində, eləcə də bp, Equinor, Total, Schlumberger, ABB, Halliburton, Atenau Ltd, Schneider Electric, Microsoft, Baker Hughes, Emerson Process Management, Avandsis Group, Maire Tecnimont, Nəzarət Ölçü Cihazları və Avtomatika MMC, Tükiyədə fəaliyyət göstərən Petkim və STAR kimi qurumlarda yay və istehsalat təcrübəsi keçir, hesabatlar hazırlayır və müdafiə edirlər. Bu amil tələbələrin sənayenin qabaqcıl mütəxəssisləri ilə effektiv münasibət qurmasına, beynəlxalq standartlara uyğun kadrlar kimi yetişməsinə, iş təminatına və uğurlu karyeranın əsasını qoymağa böyük imkanlar yaradır.
+
+ 
+
+Missiyaları:
+
+Ən müasir texnologiyalar və peşəkar pedaqoji işçilərlə təmin edilmiş təhsil mühiti yaradaraq müxtəlif sənaye və biznes sahələri üçün peşəkar bilik və bacarıqlara malik yüksəkixtisaslı kadrları hazırlamaq.
+
+ 
+
+Perspektivləri:
+
+Elm, mühəndislik və biznes sahəsində ixtisaslaşmış beynəlxalq səviyyədə tanınan ali təhsil müəssisələrindən birinə çevrilərək istər yerli, istərsə də əcnəbi tələbələrə dünyanın aparıcı universitetləri ilə birgə əməkdaşlıq çərçivəsində təhsil verə bilməkdir.
+
 FAKTLAR:
 Universitetin faktları
 2011
@@ -16,23 +41,94 @@ BANM ixtisaslar 2026 —
 
 İXTİSASLAR:
 
-- Kompüter elmləri (DİM I qrupu, orta keçid balı: 620)
-  Alqoritmlər, data strukturları, süni intellekt və proqramlaşdırma nəzəriyyəsi üzrə nüvə informatika proqramı.
 
-- Kompüter mühəndisliyi (DİM I qrupu, orta keçid balı: 600)
-  Aparat və proqram təminatının birgə mühəndisliyi — embedded sistemlər, robot texnikası, FPGA və yüksək-performanslı proqramlaşdırma.
+İxtisasın şifri: 6004002
+İxtisasın adı: Biznesin idarə edilməsi
+Təhsil müddəti: 4 il
+İllik təhsil haqqı:
+- Yerli tələbələr: 4500 AZN
+- Əcnəbi tələbələr: 5000 AZN
+Minimal keçid balı: 609.8
 
-- İnformasiya təhlükəsizliyi (DİM I qrupu, orta keçid balı: 600)
-  Kibertəhlükəsizlik, kriptoqrafiya və informasiya müdafiəsi üzrə ixtisas.
+---
 
-- Kimya mühəndisliyi (DİM I qrupu, orta keçid balı: 490)
-  Kimyəvi proseslərin sənaye miqyasında dizaynı — neft emalı, petrokimya, əczaçılıq istehsalı.
+İxtisasın şifri: 6004005
+İxtisasın adı: Maliyyə
+Təhsil müddəti: 4 il
+İllik təhsil haqqı:
+- Yerli tələbələr: 4500 AZN
+- Əcnəbi tələbələr: 5000 AZN
+Minimal keçid balı: 653.2
 
-- Neft-qaz mühəndisliyi (DİM I qrupu, orta keçid balı: 560)
-  Karbohidrogen yataqlarının kəşfiyyatı, qazılması, istehsalı və emalı üzrə ixtisas.
+---
 
-- Maliyyə (DİM II qrupu, orta keçid balı: 540)
-  Korporativ və şəxsi maliyyə, investisiya, risk idarəçiliyi və fond bazarları üzrə ixtisas.
+İxtisasın şifri: 6005009
+İxtisasın adı: Kompüter elmləri
+Təhsil müddəti: 5 il
+İllik təhsil haqqı:
+- Yerli tələbələr: 4500 AZN
+- Əcnəbi tələbələr: 5000 AZN
+Minimal keçid balı: 672.8
 
-- Biznesin idarə edilməsi (DİM II qrupu, orta keçid balı: 520)
-  Menecment, strategiya, əməliyyat və insan resursları üzrə geniş biznes ixtisası (BBA).
+---
+
+İxtisasın şifri: 6006005
+İxtisasın adı: Data analitikası
+Təhsil müddəti: 4 il
+İllik təhsil haqqı:
+- Yerli tələbələr: 4500 AZN
+- Əcnəbi tələbələr: 5000 AZN
+Minimal keçid balı: 658.1
+
+---
+
+İxtisasın şifri: 6006017
+İxtisasın adı: İnformasiya təhlükəsizliyi
+Təhsil müddəti: 5 il
+İllik təhsil haqqı:
+- Yerli tələbələr: 4500 AZN
+- Əcnəbi tələbələr: 5000 AZN
+Minimal keçid balı: 681
+
+---
+
+İxtisasın şifri: 6006020
+İxtisasın adı: Kimya mühəndisliyi
+Təhsil müddəti: 5 il
+İllik təhsil haqqı:
+- Yerli tələbələr: 4500 AZN
+- Əcnəbi tələbələr: 5000 AZN
+Minimal keçid balı: 668
+
+---
+
+İxtisasın şifri: 6006022
+İxtisasın adı: Kompüter mühəndisliyi
+Təhsil müddəti: 5 il
+İllik təhsil haqqı:
+- Yerli tələbələr: 4500 AZN
+- Əcnəbi tələbələr: 5000 AZN
+Minimal keçid balı: 662.2
+
+---
+
+İxtisasın şifri: 6006035
+İxtisasın adı: Neft-qaz mühəndisliyi
+Təhsil müddəti: 5 il
+İllik təhsil haqqı:
+- Yerli tələbələr: 4500 AZN
+- Əcnəbi tələbələr: 5000 AZN
+Minimal keçid balı: 657.3
+
+---
+
+İxtisasın şifri: 6006039
+İxtisasın adı: Proseslərin avtomatlaşdırılması mühəndisliyi
+Təhsil müddəti: 5 il
+İllik təhsil haqqı:
+- Yerli tələbələr: 4500 AZN
+- Əcnəbi tələbələr: 5000 AZN
+Minimal keçid balı: 643
+
+Ümumi məlumat:
+Bütün ixtisaslar üzrə illik təhsil haqqı yerli tələbələr üçün 4500 AZN, əcnəbi tələbələr üçün isə 5000 AZN təşkil edir.
