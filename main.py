@@ -18,3 +18,7 @@ while True:
     qv = embed_text(question)
     context = query(qv, top_k=4)
     print("\n" + generate_answer(question, context))
+
+"""
+test
+"""
