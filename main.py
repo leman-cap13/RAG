@@ -17,7 +17,7 @@ while True:
         break
     qv = embed_text(question)
     context = query(qv, top_k=4)
-    print("\n" + generate_answer(question, context))
+    print("\033[48;2;255;255;255m\n" + generate_answer(question, context) + "\x1b[0m\n" )
 
 """
 test
