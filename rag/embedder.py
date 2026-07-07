@@ -2,25 +2,44 @@ import os
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
+import time
+from google.genai.errors import ClientError # 429
+
+
 
 load_dotenv()
 
 api_key = os.getenv("GEMINI_API_KEY")
+if not api_key:
+    raise EnvironmentError(
+        "GEMINI_API_KEY is not defined in your \033[31m.env\033[0m file."
+    )
+
 client = genai.Client(api_key=api_key)
 
 MODEL = "gemini-embedding-001"
-BATCH_SIZE = 100
+BATCH_SIZE = 64
 
 
 def _embed_batch(texts, task_type):
     embeddings = []
     for i in range(0, len(texts), BATCH_SIZE):
         batch = texts[i:i + BATCH_SIZE]
-        response = client.models.embed_content(
-            model=MODEL,
-            contents=batch,
-            config=types.EmbedContentConfig(task_type=task_type),
-        )
+        while True:
+            try:
+                response = client.models.embed_content(
+                    model=MODEL,
+                    contents=batch,
+                    config=types.EmbedContentConfig(task_type=task_type),
+                )
+                time.sleep(2)
+                break
+            except ClientError as e:
+                if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
+                    print("Rate limited. Sleeping 40 seconds...")
+                    time.sleep(40)
+                    continue
+                raise
         embeddings.extend(e.values for e in response.embeddings)
     return embeddings
 
@@ -51,6 +70,6 @@ if __name__ == "__main__":
 
     embeddings = embed_documents(chunks)
     for i, (chunk, vec) in enumerate(zip(chunks, embeddings)):
-        print(f"--- chunk {i} ---")
-        print(f"text: {chunk[:80]}...")
+        print(f"-†- chunk {i} -†-")
+        print(f"text: {chunk[:50]}...")
         print(f"dim={len(vec)} first5={[round(v, 4) for v in vec[:5]]}\n")

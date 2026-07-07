@@ -59,6 +59,7 @@ if __name__ == "__main__":
 
     print(f"{path}: {len(chunks)} chunks\n")
     for i, chunk in enumerate(chunks):
-        print(f"--- chunk {i} ({len(chunk)} chars) ---")
+        print(f"-~- chunk {i} ({len(chunk)} chars) -~-")
         print(chunk)
         print()
+ 
