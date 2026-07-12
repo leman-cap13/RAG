@@ -35,6 +35,8 @@ GEMINI_API_KEY=your_api_key_here
 
 ## Usage
 
+### CLI
+
 Add your `.txt` documents to the `data/` folder, then run:
 
 ```bash
@@ -49,6 +51,28 @@ question (output: q): what does this document say about X?
 
 Type `q` to quit.
 
+### API
+
+Start the FastAPI server:
+
+```bash
+uvicorn api:app --reload
+```
+
+Interactive docs are available at `http://127.0.0.1:8000/docs`. Endpoints:
+
+| Method | Path                 | Description                                   |
+| ------ | -------------------- | ---------------------------------------------- |
+| GET    | `/health`             | health check                                   |
+| POST   | `/index`              | chunk, embed, and index new files in `data/`   |
+| POST   | `/ask`                | `{"question": "...", "top_k": 4}` → cited answer |
+| GET    | `/sources`            | list indexed source filenames                 |
+| DELETE | `/sources/{filename}` | remove a source's chunks from the vector store |
+
+## Configuration
+
+Settings live in `config.py` (backed by `.env`, see `Settings` for defaults): embedding/generation model names, chunk size/overlap, batch size, top-k, ChromaDB path, and data directory.
+
 ## Project structure
 
 ```
@@ -57,8 +81,11 @@ Type `q` to quit.
 ├── rag/
 │   ├── chunker.py      # sentence-aware chunking with overlap
 │   ├── embedder.py     # batched embeddings via Gemini (document/query task types)
-│   ├── vector_store.py # ChromaDB storage/query with metadata + dedup
+│   ├── ingest.py        # shared indexing logic used by CLI and API
+│   ├── vector_store.py # ChromaDB storage/query/list/delete with metadata + dedup
 │   └── generator.py    # generates cited, grounded answers via Gemini
-├── main.py             # ingestion + Q&A loop
+├── config.py            # centralized settings (pydantic-settings, reads .env)
+├── api.py                # FastAPI app: /ask, /index, /sources endpoints
+├── main.py               # CLI: ingestion + Q&A loop
 └── requirements.txt
 ```
