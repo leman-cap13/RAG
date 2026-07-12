@@ -14,11 +14,11 @@ def index_data(source_dir="data"):
 
     while True:
         ans = input("would you like to update the vector database? (y/n): ")
-        if ans == 'n':
+        if ans == 'y':
             for file in source_path.glob("*.txt"):
-                if is_source_indexed(file.name):
-                    print(f"{file.name}: already indexed, skipping")
-                    continue
+                # if is_source_indexed(file.name):
+                #    print(f"{file.name}: already indexed, skipping")
+                #    continue
 
                 text = file.read_text(encoding="utf-8")
                 chunks = chunk_text(text)
@@ -27,7 +27,7 @@ def index_data(source_dir="data"):
 
                 print(f"\n{file.name}: {len(chunks)} chunks indexed")
             return
-        elif ans == 'y':
+        elif ans == 'n':
             return
         else: continue
 
