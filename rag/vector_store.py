@@ -4,7 +4,9 @@ from pathlib import Path
 import chromadb
 import numpy as np
 
-DB_PATH = Path("chroma_db")
+from config import settings
+
+DB_PATH = settings.chroma_path
 client = chromadb.PersistentClient(path=DB_PATH)
 collection = client.get_or_create_collection("documents")
 

@@ -4,12 +4,13 @@ from google import genai
 from google.genai import types
 import time
 from google.genai.errors import ClientError # 429
-
+from config import settings
 
 
 load_dotenv()
 
-api_key = os.getenv("GEMINI_API_KEY")
+api_key = settings.gemini_api_key 
+
 if not api_key:
     raise EnvironmentError(
         "GEMINI_API_KEY is not defined in your \033[31m.env\033[0m file."
@@ -17,8 +18,8 @@ if not api_key:
 
 client = genai.Client(api_key=api_key)
 
-MODEL = "gemini-embedding-001"
-BATCH_SIZE = 64
+MODEL = settings.embed_model
+BATCH_SIZE = settings.embed_batch_size
 
 
 def _embed_batch(texts, task_type):

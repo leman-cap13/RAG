@@ -2,32 +2,18 @@ import os
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
-
+from config import settings
 load_dotenv()
 
-api_key = os.getenv("GEMINI_API_KEY")
+api_key = settings.gemini_api_key
 if not api_key:
     raise EnvironmentError("GEMINI_API_KEY is required in the environment to generate answers.")
 
 client = genai.Client(api_key=api_key)
 
-MODEL = "gemini-2.5-flash"
-MIN_SIMILARITY = 0.25
-PROMPT_TEMPLATE = """Sən tələbələrə universitet seçimində kömək edən səmimi, isti münasibətli bir köməkçisən.
-
-Qaydalar:
-- Cavabı YALNIZ aşağıdakı mənbələrdəki məlumata əsasən ver.
-- Rəsmi, quru dillə yox, tələbə ilə söhbət edir kimi mehriban və anlaşıqlı tonda yaz.
-- Əgər mənbələrdə sualın cavabını etibarlı şəkildə mənbələrdən çıxara bilməsən, bunu səmimi şəkildə bildir.
-- Uyğun olduğu yerlərdə istifadə etdiyin mənbəni [1], [2] və s. şəklində qeyd et.
-- Cavabı Azərbaycan dilində yaz.
-
-Mənbələr:
-{context}
-
-Sual: {question}
-
-Cavab:"""
+MODEL = settings.gen_model
+MIN_SIMILARITY = settings.min_similarity
+PROMPT_TEMPLATE = settings.default_prompt
 
 
 def _format_sources(context_chunks):

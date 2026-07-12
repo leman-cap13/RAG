@@ -4,7 +4,7 @@ from rag.chunker import chunk_text
 from rag.embedder import embed_documents, embed_query
 from rag.generator import generate_answer, MIN_SIMILARITY
 from rag.vector_store import add_chunks, query, is_source_indexed
-
+from config import settings
 
 def index_data(source_dir="data"):
     source_path = Path(source_dir)

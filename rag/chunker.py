@@ -1,5 +1,5 @@
 import re
-
+from config import settings
 _SENTENCE_SPLIT = re.compile(r"(?<=[.!?])\s+")
 
 
@@ -11,7 +11,12 @@ def _split_sentences(text):
     return sentences
 
 
-def chunk_text(text, chunk_size=800, overlap=150):
+def chunk_text(text, chunk_size=None, overlap=None):
+    if chunk_size is None:
+        chunk_size = settings.chunk_size
+    if overlap is None:
+        overlap = settings.chunk_overlap
+
     sentences = _split_sentences(text)
     if not sentences:
         return []
