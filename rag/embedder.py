@@ -1,16 +1,11 @@
-import os
-from dotenv import load_dotenv
+
 from google import genai
 from google.genai import types
+from config import settings
 
-load_dotenv()
-
-api_key = os.getenv("GEMINI_API_KEY")
-client = genai.Client(api_key=api_key)
-
-MODEL = "gemini-embedding-001"
-BATCH_SIZE = 100
-
+client = genai.Client(api_key=settings.gemini_api_key)
+BATCH_SIZE = settings.embed_batch_size
+MODEL = settings.embed_model
 
 def _embed_batch(texts, task_type):
     embeddings = []

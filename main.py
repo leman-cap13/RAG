@@ -1,23 +1,14 @@
-from pathlib import Path
-from rag.chunker import chunk_text
-from rag.embedder import embed_documents, embed_query
-from rag.vector_store import add_chunks, is_source_indexed, query
+from config import settings
+from rag.embedder import embed_query
+from rag.vector_store import query
+from rag.ingest import index_all
 from rag.generator import generate_answer
 
-for file in Path("data").glob("*.txt"):
-    if is_source_indexed(file.name):
-        print(f"{file.name}: already indexed, skipping")
-        continue
-
-    text = file.read_text(encoding="utf-8")
-    chunks = chunk_text(text)
-    embeddings = embed_documents(chunks)
-    add_chunks(chunks, embeddings, source=file.name)
-
-    print(f"\n{file.name}: {len(chunks)} chunks indexed")
-    for i, (chunk, embedding) in enumerate(zip(chunks, embeddings)):
-        print(f"  chunk {i} ({len(chunk)} chars, vector size: {len(embedding)}):")
-        print(f"    {chunk}")
+for result in index_all():
+    if result["status"] == "skipped":
+        print(f"{result['file']}: already indexed, skipping")
+    else:
+        print(f"{result['file']}: {result['chunks']} chunks indexed")
 
 while True:
     question = input("\nquestion (type q to quit): ")
