@@ -1,7 +1,9 @@
 import hashlib
 import chromadb
 
-client = chromadb.PersistentClient(path="chroma_db")
+from config import settings
+
+client = chromadb.PersistentClient(path=settings.chroma_path)
 collection = client.get_or_create_collection("documents")
 
 
@@ -18,6 +20,19 @@ def add_chunks(chunks, embeddings, source):
     ids = [_chunk_id(source, i) for i in range(len(chunks))]
     metadatas = [{"source": source, "chunk_index": i} for i in range(len(chunks))]
     collection.upsert(ids=ids, embeddings=embeddings, documents=chunks, metadatas=metadatas)
+
+
+def list_sources():
+    existing = collection.get(include=['metadatas'])
+    return sorted({m['source'] for m in existing.get("metadatas") or [] if m.get('source')})
+
+
+def delete_source(source):
+    matches = collection.get(where={"source": source})
+    ids = matches.get("ids") or []
+    if ids:
+        collection.delete(ids=ids)
+    return len(ids)
 
 
 def query(embedding, top_k=4):

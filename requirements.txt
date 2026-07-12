@@ -1,3 +1,6 @@
 google-genai
 python-dotenv
 chromadb
+fastapi
+uvicorn
+pydantic-settings
