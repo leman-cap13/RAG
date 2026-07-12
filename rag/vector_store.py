@@ -68,3 +68,13 @@ def query(embedding, top_k=4):
 
 
 
+def list_sources():
+    existing = collection.get(include=["metadatas"])
+    return sorted({meta.get("source") for meta in (existing.get("metadatas") or []) if meta.get("source")})
+
+def delete_source(source):
+    existing = collection.get(where={"source": source}, include=["ids"])
+    ids_to_delete = existing.get("ids") or []
+    if ids_to_delete:
+        collection.delete(ids=ids_to_delete)
+    return len(ids_to_delete)
