@@ -14,6 +14,8 @@ collection = client.get_or_create_collection("documents")
 def _chunk_id(source, index):
     return hashlib.sha256(f"{source}::{index}".encode("utf-8")).hexdigest()
 
+def generateUUID(source):
+    return hashlib.sha256(source.encode("utf-8")).hexdigest()
 
 def _cosine_similarity(query_embedding, document_embedding):
     query_vector = np.asarray(query_embedding, dtype=np.float64)
@@ -28,10 +30,9 @@ def _cosine_similarity(query_embedding, document_embedding):
 
     return float(np.dot(query_vector, document_vector) / (query_norm * document_norm))
 
-
 def is_source_indexed(source):
-    existing = collection.get(where={"source": source}, limit=1)
-    return len(existing.get("ids") or []) > 0
+    existing = collection.get(where={"source": source})
+    return bool(existing.get("ids"))
 
 
 def add_chunks(chunks, embeddings, source):
@@ -61,6 +62,7 @@ def query(embedding, top_k=4):
                 "source": meta.get("source") if meta else None,
                 "distance": dist,
                 "similarity": similarity,
+                "uuid": generateUUID(doc) 
             }
         )
 
@@ -77,4 +79,4 @@ def delete_source(source):
     ids_to_delete = existing.get("ids") or []
     if ids_to_delete:
         collection.delete(ids=ids_to_delete)
-    return len(ids_to_delete)
+    return len(ids_to_delete), ids_to_delete

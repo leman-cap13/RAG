@@ -1,9 +1,12 @@
 from pydantic_settings import BaseSettings, SecretsSettingsSource
+import os
+from dotenv import load_dotenv
 
+
+load_dotenv()
 class Settings(BaseSettings):
-    model_config = SecretsSettingsSource(env_file = ".env", extra = "ignore")
 
-    gemini_api_key: str
+    gemini_api_key: str = os.environ.get("GEMINI_API_KEY", "")
 
     embed_model: str = "gemini-embedding-001"
     embed_batch_size: int = 100

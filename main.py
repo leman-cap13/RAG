@@ -5,31 +5,8 @@ from rag.embedder import embed_documents, embed_query
 from rag.generator import generate_answer, MIN_SIMILARITY
 from rag.vector_store import add_chunks, query, is_source_indexed
 from config import settings
+from rag.ingest import index_data
 
-def index_data(source_dir="data"):
-    source_path = Path(source_dir)
-    if not source_path.exists():
-        print(f"Warning: data directory '{source_dir}' not found.")
-        return
-
-    while True:
-        ans = input("would you like to update the vector database? (y/n): ")
-        if ans == 'y':
-            for file in source_path.glob("*.txt"):
-                # if is_source_indexed(file.name):
-                #    print(f"{file.name}: already indexed, skipping")
-                #    continue
-
-                text = file.read_text(encoding="utf-8")
-                chunks = chunk_text(text)
-                embeddings = embed_documents(chunks)
-                add_chunks(chunks, embeddings, source=file.name)
-
-                print(f"\n{file.name}: {len(chunks)} chunks indexed")
-            return
-        elif ans == 'n':
-            return
-        else: continue
 
 
 def show_context(context):
