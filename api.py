@@ -31,6 +31,9 @@ class IndexResponse(BaseModel):
     file_name: str
     status: str
     chunks: int
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to my RAG API!"}
 
 @app.get("/health")
 def health_check():
@@ -44,7 +47,7 @@ def index_endpoint():
 @app.post("/ask", response_model=AskResponse)
 def ask(request: AskRequest):
     question = request.question
-    top_k = request.top_k
+    top_k = request.top_k or settings.top_k
 
     if not question:
         raise HTTPException(status_code=400, detail="Where is your question?")
@@ -81,7 +84,7 @@ def delete_source_endpoint(source_name: str):
              "ids": deleted_ids
             }
 
-@app.lifespan("startup")
+@app.on_event("startup")
 def startup_event():
     print("Setting the server up...")
 
