@@ -69,6 +69,23 @@ Interactive docs are available at `http://127.0.0.1:8000/docs`. Endpoints:
 | GET    | `/sources`            | list indexed source filenames                 |
 | DELETE | `/sources/{filename}` | remove a source's chunks from the vector store |
 
+### Docker
+
+Build and run the API in a container (requires a `.env` file with `GEMINI_API_KEY` set, as above):
+
+```bash
+docker compose up --build
+```
+
+This mounts `data/` and `chroma_db/` as volumes, so indexed documents and vectors persist across container restarts. The API is available at `http://127.0.0.1:8000/docs`.
+
+Without Compose:
+
+```bash
+docker build -t rag .
+docker run -p 8000:8000 --env-file .env -v $(pwd)/data:/app/data -v $(pwd)/chroma_db:/app/chroma_db rag
+```
+
 ## Configuration
 
 Settings live in `config.py` (backed by `.env`, see `Settings` for defaults): embedding/generation model names, chunk size/overlap, batch size, top-k, ChromaDB path, and data directory.
