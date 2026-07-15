@@ -42,7 +42,7 @@ def ask_loop():
 
 
 if __name__ == "__main__":
-    index_data()
+    index_data(True)
     print(f"\nUsing similarity threshold: \033[33m{MIN_SIMILARITY}\033[0m")
     ask_loop()
 

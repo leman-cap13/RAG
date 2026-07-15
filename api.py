@@ -32,6 +32,7 @@ class IndexResponse(BaseModel):
     file_name: str
     status: str
     chunks: int
+
 @app.get("/")
 def read_root():
     return {"message": "Welcome to my RAG API!"}
@@ -41,8 +42,8 @@ def health_check():
     return {"status": "ok"}
 
 @app.post("/index", response_model=list[IndexResponse])
-def index() -> list[IndexResponse]:
-    results = index_data()
+def index(reindex: bool) -> list[IndexResponse]:
+    results = index_data(reindex=reindex)
     if any(r["status"] == "indexed" for r in results):
         clear_cache()
     return results

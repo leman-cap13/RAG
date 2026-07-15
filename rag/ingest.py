@@ -5,7 +5,7 @@ from rag.chunker import chunk_text
 from rag.embedder import embed_documents
 from rag.vector_store import add_chunks, is_source_indexed
 
-def index_data(data_dir = None):
+def index_data(data_dir: Path = None, reindex: bool = True):
     data_dir = Path(data_dir or settings.data_dir)
 
     if not data_dir.exists():
@@ -14,8 +14,7 @@ def index_data(data_dir = None):
     
     results = []
 
-    ans = input("would you like to update the vector database? (y/n): ")
-    if ans == 'y':
+    if reindex:
         for file in data_dir.glob("*.txt"):
             if is_source_indexed(file.name):
                 print(f"{file.name}: already indexed, skipping")
@@ -27,7 +26,6 @@ def index_data(data_dir = None):
             add_chunks(chunks, embeddings, source=file.name)
 
             results.append((file.name, len(chunks)))
-    elif ans == 'n':
-        return
+    
 
 
