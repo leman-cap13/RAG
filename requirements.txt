@@ -4,3 +4,10 @@ chromadb
 fastapi
 uvicorn
 pydantic-settings
+opentelemetry-api
+opentelemetry-sdk
+opentelemetry-instrumentation
+opentelemetry-instrumentation-fastapi
+
+redis
+redisvl

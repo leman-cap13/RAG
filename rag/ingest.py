@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from config import settings
+
 from rag.chunker import chunk_text
 from rag.embedder import embed_documents
 from rag.vector_store import is_source_indexed, add_chunks

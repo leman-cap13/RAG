@@ -1,9 +1,14 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file =".env", extra = "ignore")
+print("Loading config.py...")
 
-    gemini_api_key : str
+class Settings(BaseSettings):
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        extra="ignore"
+    )
+
+    gemini_api_key: str
 
     embed_model: str = "gemini-embedding-001"
     embed_batch_size: int = 100
@@ -15,9 +20,15 @@ class Settings(BaseSettings):
     data_dir: str = "data"
 
     chunk_size: int = 800
-
     chunk_overlap: int = 150
 
-    top_k: int = 5
+    top_k: int = 4
+
+    redis_url: str = "redis://localhost:6379/0"
+    cache_ttl: int = 3600
+    cache_similarity_threshold: float = 0.15
+
 
 settings = Settings()
+
+print("Settings loaded successfully")

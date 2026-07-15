@@ -1,5 +1,6 @@
 import os
-from chromadb.app import settings
+from config import settings
+
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types

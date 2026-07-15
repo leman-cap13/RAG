@@ -33,4 +33,20 @@ def delete_source(source):
         collection.delete(ids=ids)
     return len(ids)
 
+def query(embedding, top_k=4):
+    results = collection.query(query_embeddings=[embedding], n_results=top_k)
+    documents = (results.get("documents") or [[]])[0]
+    metadatas = (results.get("metadatas") or [[]])[0]
+    distances = (results.get("distances") or [[]])[0]
+
+    return [
+        {
+            "text": doc,
+            "source": meta.get("source") if meta else None,
+            "distance": dist,
+        }
+        for doc, meta, dist in zip(documents, metadatas, distances)
+    ]
+
+
 
