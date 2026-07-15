@@ -39,5 +39,9 @@ class Settings(BaseSettings):
 
     top_k: int = 4
 
+    redis_url: str = "redis://localhost:6379"
+    cache_ttl: int =  3600
+    cache_similarity_threshold: float = 0.15
+
 settings = Settings()
 

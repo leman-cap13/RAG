@@ -1,8 +1,9 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-
+import json
 from rag.chunker import chunk_text
 from rag.embedder import embed_query
+from rag.cache import get_cached_answer, set_cached_answer, clear_cache
 from rag.generator import generate_answer
 from rag.vector_store import  query, list_sources, delete_source
 from config import settings
@@ -40,21 +41,28 @@ def health_check():
     return {"status": "ok"}
 
 @app.post("/index", response_model=list[IndexResponse])
-def index_endpoint():
-    res = index_data()
-    return res
+def index() -> list[IndexResponse]:
+    results = index_data()
+    if any(r["status"] == "indexed" for r in results):
+        clear_cache()
+    return results
 
 @app.post("/ask", response_model=AskResponse)
-def ask(request: AskRequest):
-    question = request.question
-    top_k = request.top_k or settings.top_k
+def ask(request: AskRequest) -> AskResponse:
 
-    if not question:
+    if not request.question:
         raise HTTPException(status_code=400, detail="Where is your question?")
+    
+    cached = get_cached_answer(request.question, top_k=request.top_k)
 
-    qv = embed_query(question)
-    context_chunks = query(qv, top_k=top_k)
-    answer = generate_answer(question, context_chunks)
+    if cached:
+        return AskResponse(
+            **cached
+        )
+
+    qv = embed_query(request.question)
+    context_chunks = query(qv, top_k=request.top_k)
+    answer = generate_answer(request.question, context_chunks)
 
     sources = sorted({c["source"] for c in context_chunks if c.get("source")})
     context_response = [
@@ -67,6 +75,7 @@ def ask(request: AskRequest):
         )
         for c in context_chunks
     ]
+    set_cached_answer(request.question, request.top_k, json.loads(AskResponse(answer=answer, sources=sources, context=context_response).json()))
 
     return AskResponse(answer=answer, sources=sources, context=context_response)
 
@@ -83,6 +92,7 @@ def delete_source_endpoint(source_name: str):
              "deleted_chunks": deleted_count,
              "ids": deleted_ids
             }
+
 
 @app.on_event("startup")
 def startup_event():

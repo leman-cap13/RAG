@@ -5,3 +5,5 @@ numpy
 uvicorn
 pydantic-settings
 fastapi
+redisvl
+redis

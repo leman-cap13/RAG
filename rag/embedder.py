@@ -52,6 +52,11 @@ def embed_documents(texts):
 def embed_query(text):
     return _embed_batch([text], task_type="RETRIEVAL_QUERY")[0]
 
+def embed_semantic(text: str) -> list[float]:
+    return _embed_batch([text], task_type="SEMANTIC_SIMILARITY")[0]
+
+def embed_semantic_batch(texts: list[str]) -> list[list[float]]:
+    return _embed_batch(texts, task_type="SEMANTIC_SIMILARITY")
 
 if __name__ == "__main__":
     import sys
@@ -74,3 +79,4 @@ if __name__ == "__main__":
         print(f"-†- chunk {i} -†-")
         print(f"text: {chunk[:50]}...")
         print(f"dim={len(vec)} first5={[round(v, 4) for v in vec[:5]]}\n")
+
