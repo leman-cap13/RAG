@@ -4,3 +4,5 @@ chromadb
 fastapi
 uvicorn
 pydantic-settings
+redis
+redisvl

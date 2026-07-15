@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
 from config import settings
+from rag.cache import clear_cache, get_cached_answer, set_cached_answer
 from rag.embedder import embed_query
 from rag.generator import generate_answer
 from rag.ingest import index_all
@@ -40,7 +41,10 @@ def health():
 
 @app.post("/index", response_model=list[IndexResult])
 def index():
-    return index_all()
+    results = index_all()
+    if any(r["status"] == "indexed" for r in results):
+        clear_cache()
+    return results
 
 
 @app.post("/ask", response_model=AskResponse)
@@ -48,12 +52,18 @@ def ask(req: AskRequest):
     if not req.question.strip():
         raise HTTPException(status_code=422, detail="question boş ola bilməz")
 
+    cached = get_cached_answer(req.question, req.top_k)
+    if cached:
+        return AskResponse(**cached)
+
     qv = embed_query(req.question)
     context = query(qv, top_k=req.top_k)
     answer = generate_answer(req.question, context)
     sources = sorted({c["source"] for c in context if c.get("source")})
 
-    return AskResponse(answer=answer, sources=sources, context=context)
+    response = AskResponse(answer=answer, sources=sources, context=context)
+    set_cached_answer(req.question, req.top_k, response.model_dump())
+    return response
 
 
 @app.get("/sources", response_model=list[str])
@@ -66,4 +76,5 @@ def remove_source(filename: str):
     deleted = delete_source(filename)
     if deleted == 0:
         raise HTTPException(status_code=404, detail=f"'{filename}' indekslənməmişdi")
+    clear_cache()
     return {"file": filename, "deleted_chunks": deleted}

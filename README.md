@@ -86,9 +86,15 @@ docker build -t rag .
 docker run -p 8000:8000 --env-file .env -v $(pwd)/data:/app/data -v $(pwd)/chroma_db:/app/chroma_db rag
 ```
 
+## Caching
+
+`/ask` responses are cached in Redis, keyed by the (question, top_k) pair, with a TTL (`cache_ttl`, default 1 hour). Repeated questions are served instantly without calling Gemini again. The cache is cleared automatically whenever `/index` indexes new files or a source is deleted via `DELETE /sources/{filename}`, so stale answers don't stick around after the data changes.
+
+With Docker Compose, a `redis` service is started alongside `rag` automatically. Running locally without Compose, point `REDIS_URL` (in `.env`) at a running Redis instance — it defaults to `redis://localhost:6379/0`.
+
 ## Configuration
 
-Settings live in `config.py` (backed by `.env`, see `Settings` for defaults): embedding/generation model names, chunk size/overlap, batch size, top-k, ChromaDB path, and data directory.
+Settings live in `config.py` (backed by `.env`, see `Settings` for defaults): embedding/generation model names, chunk size/overlap, batch size, top-k, ChromaDB path, data directory, and Redis cache URL/TTL.
 
 ## Project structure
 

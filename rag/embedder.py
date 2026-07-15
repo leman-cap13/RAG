@@ -25,3 +25,11 @@ def embed_documents(texts):
 
 def embed_query(text):
     return _embed_batch([text], task_type="RETRIEVAL_QUERY")[0]
+
+
+def embed_semantic(text):
+    return _embed_batch([text], task_type="SEMANTIC_SIMILARITY")[0]
+
+
+def embed_semantic_batch(texts):
+    return _embed_batch(texts, task_type="SEMANTIC_SIMILARITY")
