@@ -1,8 +1,8 @@
 from config import settings
 from rag.embedder import embed_query
 from rag.vector_store import query
-from rag.ingest import index_all
 from rag.generator import generate_answer
+from rag.ingest import index_all
 
 for result in index_all():
     if result["status"] == "skipped":
@@ -16,7 +16,7 @@ while True:
         break
 
     qv = embed_query(question)
-    context = query(qv, top_k=4)
+    context = query(qv, top_k=settings.top_k)
 
     print(f"\n{len(context)} chunks retrieved from the vector store:")
     for i, c in enumerate(context, start=1):

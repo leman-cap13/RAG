@@ -1,0 +1,7 @@
+ragvenv/
+__pycache__/
+**/__pycache__/
+chroma_db/
+.git/
+.env
+*.pyc
