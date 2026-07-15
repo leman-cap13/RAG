@@ -4,3 +4,7 @@ chromadb
 fastapi
 uvicorn
 pydantic-settings
+opentelemetry-instrumentation
+opentelemetry-instrumentation-fastapi
+redis
+redisvl==0.7.0
