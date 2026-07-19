@@ -1,4 +1,5 @@
 import re
+
 from config import settings
 
 _SENTENCE_SPLIT = re.compile(r"(?<=[.!?])\s+")
@@ -15,7 +16,6 @@ def _split_sentences(text):
 def chunk_text(text, chunk_size=None, overlap=None):
     chunk_size = chunk_size if chunk_size is not None else settings.chunk_size
     overlap = overlap if overlap is not None else settings.chunk_overlap
-
     sentences = _split_sentences(text)
     if not sentences:
         return []
@@ -48,21 +48,4 @@ def chunk_text(text, chunk_size=None, overlap=None):
     return chunks
 
 
-if __name__ == "__main__":
-    import sys
-    from pathlib import Path
 
-    if len(sys.argv) > 1:
-        path = sys.argv[1]
-    else:
-        path = next(Path("data").glob("*.txt"))
-
-
-    text = open(path, encoding="utf-8").read()
-    chunks = chunk_text(text)
-
-    print(f"{path}: {len(chunks)} chunks\n")
-    for i, chunk in enumerate(chunks):
-        print(f"--- chunk {i} ({len(chunk)} chars) ---")
-        print(chunk)
-        print()
