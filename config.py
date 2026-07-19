@@ -20,15 +20,15 @@ class Settings(BaseSettings):
 
     top_k: int = 4
 
-    redis_url: str = 'redis://localhost:6379/0'
+    redis_url: str = "redis://localhost:6379/0"
     cache_ttl: int = 3600
     cache_similarity_threshold: float = 0.15
 
-    log_level: str = 'INFO'
-    log_format: str = 'text'
+    log_level: str = "INFO"
+    log_format: str = "text"  # "text" for readable local/dev logs, "json" for prod log aggregators
 
-    rabbitmq_url: str = 'amqp://guest:guest@localhost:5672/'
-    rabbitmq_ask_queue: str = 'ask_queue'
+    rabbitmq_url: str = "amqp://guest:guest@localhost:5672/"
+    rabbitmq_ask_queue: str = "ask_queue"
     rabbitmq_rpc_timeout: int = 45
     rabbitmq_max_queue_depth: int = 300
 

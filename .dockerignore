@@ -1,7 +1,7 @@
 .venv/
-__pyache__/
-**/__pyache__/
+__pycache__/
+**/__pycache__/
 chroma_db/
 .git/
-/env
+.env
 *.pyc

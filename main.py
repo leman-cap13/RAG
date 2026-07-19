@@ -1,17 +1,18 @@
 from config import settings
-
+from logging_config import setup_logging
 from rag.embedder import embed_query
 from rag.vector_store import query
 from rag.generator import generate_answer
 from rag.ingest import index_all
 
-for result in index_all():
-    if result['status'] == 'skipped':
-        print(f'{result["file"]}: already indexed, skipping')
-    else:
-        print(f'{result['file']}: {result['chunks']} chunks indexed')
+setup_logging(settings.log_level, settings.log_format)
 
-    
+for result in index_all():
+    if result["status"] == "skipped":
+        print(f"{result['file']}: already indexed, skipping")
+    else:
+        print(f"{result['file']}: {result['chunks']} chunks indexed")
+
 while True:
     question = input("\nquestion (type q to quit): ")
     if question.lower() == "q":
