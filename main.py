@@ -1,8 +1,11 @@
 from config import settings
+from logging_config import setup_logging
 from rag.embedder import embed_query
 from rag.vector_store import query
 from rag.generator import generate_answer
 from rag.ingest import index_all
+
+setup_logging(settings.log_level, settings.log_format)
 
 for result in index_all():
     if result["status"] == "skipped":
