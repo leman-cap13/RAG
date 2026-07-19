@@ -72,7 +72,7 @@ def query(embedding, top_k=4):
                 "uuid": generateUUID(doc) 
             }
         )
-        
+    duration_ms = round((time.perf_counter() - start) * 1000, 2)
     logger.debug(
         "vector_store_query",
         extra={"top_k": top_k, "results": len(documents), "duration_ms": duration_ms},

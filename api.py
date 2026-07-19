@@ -4,7 +4,9 @@ import time
 import uuid
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, HTTPException
+from fastapi.responses import JSONResponse
+
+from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel
 import json
 from rag.chunker import chunk_text
@@ -18,6 +20,8 @@ from logging_config import request_id_var, setup_logging
 from rag.vector_store import delete_source, list_sources
 from rabbit import rabbit_client
 
+
+
 setup_logging(settings.log_level, settings.log_format)
 logger = logging.getLogger(__name__)
 
@@ -28,7 +32,7 @@ async def lifespan(app: FastAPI):
     await rabbit_client.close()
 
 
-app = FastAPI(title="RAG", version="9.32.6 debug", description = "salam")
+app = FastAPI(title="RAG", version="9.32.6 debug", description = "salam", lifespan=lifespan)
 
 @app.middleware("http")
 async def request_logging_middleware(request: Request, call_next):
@@ -119,35 +123,21 @@ async def ask(request: AskRequest) -> AskResponse:
     
     try:
         result = await rabbit_client.call(
-            {"question": request.question, "top_k": request.top_k},
+            {
+                "question": request.question,
+                "top_k": request.top_k,
+            },
             correlation_id=request_id_var.get(),
         )
     except asyncio.TimeoutError:
-        logger.error("ask_timeout", extra={"top_k": request.top_k})
-        raise HTTPException(status_code=504, detail="Cavab vaxtında alınmadı, bir az sonra yenidən cəhd edin")
-    
+        raise HTTPException(status_code=504, detail="Timed out waiting for worker.")
+
     if "error" in result:
-        logger.error("ask_worker_error", extra={"error": result["error"]})
-        raise HTTPException(status_code=502, detail="Sual emalı zamanı xəta baş verdi")
-    
-    qv = embed_query(request.question)
-    context_chunks = query(qv, top_k=request.top_k)
-    answer = generate_answer(request.question, context_chunks)
+        raise HTTPException(status_code=502, detail=result["error"])
 
-    sources = sorted({c["source"] for c in context_chunks if c.get("source")})
-    context_response = [
-        SourceChunk(
-            text=c["text"],
-            source=c.get("source", "unknown"),
-            distance=c.get("distance", 0.0),
-            similarity=c.get("similarity", 0.0),
-            uuid=c.get("uuid", "")
-        )
-        for c in context_chunks
-    ]
-    set_cached_answer(request.question, request.top_k, json.loads(AskResponse(answer=answer, sources=sources, context=context_response).json()))
+    set_cached_answer(request.question, request.top_k, result)
 
-    return AskResponse(answer=answer, sources=sources, context=context_response)
+    return AskResponse(**result)
 
 @app.get('/sources', response_model=list[str])
 def get_sources():
@@ -158,17 +148,24 @@ def delete_source_endpoint(source_name: str):
     deleted_count, deleted_ids = delete_source(source_name)
     if deleted_count == 0:
         raise HTTPException(status_code=404, detail=f"No chunks found for source '{source_name}'")
-    logger.info("source_deleted", extra={"file": filename, "deleted_chunks": deleted})
+    logger.info("source_deleted", extra={"file": source_name, "deleted_chunks": deleted_count})
     return {
              "deleted_chunks": deleted_count,
              "ids": deleted_ids
             }
 
 
-@app.on_event("startup")
-def startup_event():
-    print("Setting the server up...")
+# @app.on_event("startup")
+# def startup_event():
+#     print("Setting the server up...")
 
 @app.exception_handler(Exception)
-def global_exception_handler(request, exc):
-    return HTTPException(status_code=999, detail=f"An unexpected error occurred: {str(exc)}")
+async def global_exception_handler(request: Request, exc: Exception):
+    logger.exception("Unhandled exception")
+
+    return JSONResponse(
+        status_code=500,
+        content={
+            "detail": f"An unexpected error occurred: {exc}"
+        },
+    )

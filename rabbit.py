@@ -22,9 +22,9 @@ class RabbitRPCClient:
         self._connection = await aio_pika.connect_robust(settings.rabbitmq_url)
         self._channel = await self._connection.channel()
         self._callback_queue  = await self._channel.declare_queue(exclusive=True)
-        await self._callback_queue.consume(self.on_response, no_ack=True)
-        await self._channel.declare_queue(settings.rabbitmq_queue, durable=True)
-        logger.info("Connected to RabbitMQ",extra={"queue": settings.rabbitmq_queue})
+        await self._callback_queue.consume(self._on_response, no_ack=True)
+        await self._channel.declare_queue(settings.rabbitmq_ask_queue, durable=True)
+        logger.info("Connected to RabbitMQ",extra={"queue": settings.rabbitmq_ask_queue})
     
     async def close(self):
         if self._connection:
@@ -53,7 +53,7 @@ class RabbitRPCClient:
                 correlation_id=correlation_id,
                 reply_to=self._callback_queue.name
             ),
-            routing_key=settings.rabbitmq_queue
+            routing_key=settings.rabbitmq_ask_queue
         )
 
         try:

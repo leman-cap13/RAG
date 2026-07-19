@@ -33,7 +33,7 @@ async def handle_message(channel: AbstractChannel, message: AbstractIncomingMess
         try:
             logger.info("Received question", extra={"question": question, "top_k": top_k})
 
-            query_embedding = await embed_query(question)
+            query_embedding = embed_query(question)
             context = query(query_embedding, top_k=top_k)
             answer = generate_answer(question, context)
             sources = sorted({c["source"] for c in context if c.get("source")})
@@ -43,7 +43,7 @@ async def handle_message(channel: AbstractChannel, message: AbstractIncomingMess
                         "sources" : sources,
                         "context" : context
                         }
-            set_cached_answer(question, result)
+            set_cached_answer(question, top_k,result)
             duration_ms = round((time.perf_counter() - start) * 1000, 2)
             logger.info("Processed question", extra={"question": question, "top_k": top_k, "duration_ms": duration_ms})
         except Exception:
@@ -57,8 +57,9 @@ async def handle_message(channel: AbstractChannel, message: AbstractIncomingMess
             aio_pika.Message(
                 json.dumps(result).encode(),
                 correlation_id=message.correlation_id,
-                returning_key = message.reply_to
-            )
+                content_type="application/json"
+            ),
+            routing_key = message.reply_to
         )
 
 
