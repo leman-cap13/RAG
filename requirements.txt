@@ -8,3 +8,4 @@ opentelemetry-instrumentation
 opentelemetry-instrumentation-fastapi
 redis
 redisvl==0.7.0
+aio-pika

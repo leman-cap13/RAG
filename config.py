@@ -24,5 +24,13 @@ class Settings(BaseSettings):
     cache_ttl: int = 3600
     cache_similarity_threshold: float = 0.15
 
+    log_level: str = 'INFO'
+    log_format: str = 'text'
+
+    rabbitmq_url: str = 'amqp://guest:guest@localhost:5672/'
+    rabbitmq_ask_queue: str = 'ask_queue'
+    rabbitmq_rpc_timeout: int = 45
+    rabbitmq_max_queue_depth: int = 300
+
 
 settings = Settings()
