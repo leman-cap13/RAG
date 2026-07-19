@@ -1,5 +1,7 @@
 import re
+
 from config import settings
+
 _SENTENCE_SPLIT = re.compile(r"(?<=[.!?])\s+")
 
 
@@ -46,21 +48,4 @@ def chunk_text(text, chunk_size=None, overlap=None):
     return chunks
 
 
-if __name__ == "__main__":
-    import sys
-    from pathlib import Path
 
-    if len(sys.argv) > 1:
-        path = sys.argv[1]
-    else:
-        path = next(Path("data").glob("*.txt"))
-
-
-    text = open(path, encoding="utf-8").read()
-    chunks = chunk_text(text)
-
-    print(f"{path}: {len(chunks)} chunks\n")
-    for i, chunk in enumerate(chunks):
-        print(f"--- chunk {i} ({len(chunk)} chars) ---")
-        print(chunk)
-        print()

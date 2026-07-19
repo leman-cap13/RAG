@@ -1,4 +1,4 @@
-ragvenv/
+.venv/
 __pycache__/
 **/__pycache__/
 chroma_db/

@@ -1,6 +1,13 @@
 import hashlib
+import logging
+import time
+
 import chromadb
 from config import settings
+
+from config import settings
+
+logger = logging.getLogger(__name__)
 
 client = chromadb.PersistentClient(path=settings.chroma_path)
 collection = client.get_or_create_collection("documents")
@@ -23,8 +30,7 @@ def add_chunks(chunks, embeddings, source):
 
 def list_sources():
     existing = collection.get(include=["metadatas"])
-    return sorted((m["source"] for m in (existing.get("metadatas") or []) if m.get("source")))
-
+    return sorted({m["source"] for m in existing.get("metadatas") or [] if m.get("source")})
 
 
 def delete_source(source):
@@ -36,10 +42,18 @@ def delete_source(source):
 
 
 def query(embedding, top_k=4):
+    start = time.perf_counter()
     results = collection.query(query_embeddings=[embedding], n_results=top_k)
+    duration_ms = round((time.perf_counter() - start) * 1000, 2)
+
     documents = (results.get("documents") or [[]])[0]
     metadatas = (results.get("metadatas") or [[]])[0]
     distances = (results.get("distances") or [[]])[0]
+
+    logger.debug(
+        "vector_store_query",
+        extra={"top_k": top_k, "results": len(documents), "duration_ms": duration_ms},
+    )
 
     return [
         {
