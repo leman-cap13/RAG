@@ -1,10 +1,16 @@
 import hashlib
+import logging
+import time
+
+
 from pathlib import Path
 
 import chromadb
 import numpy as np
 
 from config import settings
+
+logger = logging.getLogger(__name__)
 
 DB_PATH = settings.chroma_path
 client = chromadb.PersistentClient(path=DB_PATH)
@@ -42,6 +48,7 @@ def add_chunks(chunks, embeddings, source):
 
 
 def query(embedding, top_k=4):
+    start = time.perf_counter()
     results = collection.query(
         query_embeddings=[embedding],
         n_results=top_k,
@@ -65,6 +72,12 @@ def query(embedding, top_k=4):
                 "uuid": generateUUID(doc) 
             }
         )
+        
+    logger.debug(
+        "vector_store_query",
+        extra={"top_k": top_k, "results": len(documents), "duration_ms": duration_ms},
+    )
+
 
     return chunks
 

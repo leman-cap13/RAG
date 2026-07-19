@@ -1,12 +1,14 @@
 import json
+import logging
 
 from pydantic import ConfigDict
 from redisvl.extensions.cache.llm import SemanticCache
 from redisvl.query.filter import Num
 from redisvl.utils.vectorize.base import BaseVectorizer
-
 from config import settings
 from rag.embedder import embed_semantic, embed_semantic_batch
+
+logger = logging.getLogger(__name__)
 
 class GeminiCacheVectorize(BaseVectorizer):
     model_config = ConfigDict(
@@ -38,7 +40,11 @@ def get_cached_answer(question: str, top_k: int = 1):
         num_results=1
     )
 
-    return json.loads(hits[0].metadata["response"]) if hits else None
+    if hits:
+        logger.debug("cache_hit", extra={"top_k" : top_k})
+        return json.loads(hits[0]["response"]) if hits else None
+    logger.debug("cache_miss", extra={"top_k": top_k})
+    return None
 
 def set_cached_answer(question: str, top_k: int, payload: dict):
     cache.store(

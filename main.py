@@ -4,10 +4,11 @@ from rag.chunker import chunk_text
 from rag.embedder import embed_documents, embed_query
 from rag.generator import generate_answer, MIN_SIMILARITY
 from rag.vector_store import add_chunks, query, is_source_indexed
-from config import settings
 from rag.ingest import index_data
+from config import settings
+from logging_config import setup_logging
 
-
+setup_logging(settings.log_level, settings.log_format)
 
 def show_context(context):
     print(f"\n{len(context)} chunks retrieved from the vector store:")

@@ -1,10 +1,15 @@
+import logging
 import os
+import time
+
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
-import time
 from google.genai.errors import ClientError # 429
 from config import settings
+
+
+logger = logging.getLogger(__name__)
 
 
 load_dotenv()
@@ -24,7 +29,8 @@ BATCH_SIZE = settings.embed_batch_size
 
 def _embed_batch(texts, task_type):
     embeddings = []
-    for i in range(0, len(texts), BATCH_SIZE):
+    start = time.perf_counter()
+    for i in range(0,len(texts), BATCH_SIZE):
         batch = texts[i:i + BATCH_SIZE]
         while True:
             try:
@@ -42,6 +48,11 @@ def _embed_batch(texts, task_type):
                     continue
                 raise
         embeddings.extend(e.values for e in response.embeddings)
+        duration_ms = round((time.perf_counter() - start) * 1000, 2)
+        logger.debug(
+        "embed_batch",
+        extra={"task_type": task_type, "texts": len(texts), "duration_ms": duration_ms},
+        )
     return embeddings
 
 
