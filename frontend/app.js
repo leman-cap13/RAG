@@ -219,7 +219,7 @@
   function showWelcome() {
     addMessage(
       "assistant",
-      "Salam! Mən Dory-yəm ✦ Universitet, fakültə, qəbul şərtləri — nə bilmək istəsən, mənbələrə əsaslanaraq sənə kömək etməyə çalışacam. Nədən başlayaq?"
+      "Salam! Mən Star-am ✦ Universitet, fakültə, qəbul şərtləri — nə bilmək istəsən, mənbələrə əsaslanaraq sənə kömək etməyə çalışacam. Nədən başlayaq?"
     );
   }
 
