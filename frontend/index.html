@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dory · Universitet Məsləhətçin</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="sky"></canvas>
+
+  <main class="chat-shell">
+    <header class="chat-header">
+      <div class="avatar">✦</div>
+      <div class="header-text">
+        <h1>Dory</h1>
+        <p>sənin universitet məsləhətçin</p>
+      </div>
+      <button id="reset-btn" class="reset-btn" title="Yeni söhbət başlat">Yeni söhbət</button>
+    </header>
+
+    <section id="messages" class="messages"></section>
+
+    <form id="composer" class="composer">
+      <textarea
+        id="question-input"
+        placeholder="Universitet, proqram, sənəd haqqında nə bilmək istəyirsən?"
+        rows="1"
+        autofocus
+      ></textarea>
+      <button type="submit" id="send-btn" aria-label="Göndər">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+          <path d="M4 12L20 4L13 20L11 13L4 12Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </form>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
