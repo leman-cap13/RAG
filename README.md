@@ -63,15 +63,22 @@ uvicorn api:app --reload
 python worker.py       # in a separate terminal; run multiple copies to parallelize /ask
 ```
 
-Interactive docs are available at `http://127.0.0.1:8000/docs`. Endpoints:
+A chat UI ("Dory") is served at `http://127.0.0.1:8000/`. Interactive API docs are at `http://127.0.0.1:8000/docs`. Endpoints:
 
 | Method | Path                 | Description                                   |
 | ------ | -------------------- | ---------------------------------------------- |
+| GET    | `/`                    | chat UI (`frontend/`, served as static files)  |
 | GET    | `/health`             | health check                                   |
 | POST   | `/index`              | chunk, embed, and index new files in `data/`   |
-| POST   | `/ask`                | `{"question": "...", "top_k": 4}` → cited answer |
+| POST   | `/ask`                | `{"question": "...", "top_k": 4, "session_id": null}` → cited answer + `session_id` |
 | GET    | `/sources`            | list indexed source filenames                 |
 | DELETE | `/sources/{filename}` | remove a source's chunks from the vector store |
+
+## Conversation memory
+
+`/ask` accepts an optional `session_id`. Omit it (or send `null`) on the first message — the response comes back with a freshly minted `session_id`; send that same value on follow-up questions and the assistant will recall the conversation so far (e.g. "orada hansı proqramlar var?" resolves to whichever university was discussed earlier).
+
+History is stored server-side in Redis (`chat_session:{session_id}`, capped at `max_history_turns` exchanges, `session_ttl` seconds TTL — both in `config.py`), not on the client, so it survives page reloads as long as the frontend keeps the `session_id` (it does, in `localStorage`). Because a cached answer isn't scoped to any one conversation, the semantic cache in `rag/cache.py` is only consulted/written on session-less first turns — once a session has history, every question goes through the full pipeline so context is always respected.
 
 ### Docker
 
@@ -128,6 +135,18 @@ Two formats are available via `LOG_FORMAT` in `.env`:
 
 Set the log level with `LOG_LEVEL` in `.env` (default `INFO`).
 
+## Testing
+
+Integration tests (`tests/`) spin up the real FastAPI app and a real `worker.py` consumer in-process against a real Redis and RabbitMQ, with the Gemini client mocked out (no API key/cost needed). They cover the full `/ask` path: cache miss → RabbitMQ RPC → worker pipeline → cache write, plus `/index`, queue-full backpressure (`503`), and validation errors.
+
+```bash
+pip install -r requirements-dev.txt
+docker compose up -d redis rabbitmq   # or point REDIS_URL/RABBITMQ_URL at running instances
+python -m pytest tests/ -v
+```
+
+CI (`.github/workflows/ci.yml`) runs `ruff check`, a Docker build, and this test suite against fresh Redis/RabbitMQ service containers on every push and PR to `main`.
+
 ## Configuration
 
 Settings live in `config.py` (backed by `.env`, see `Settings` for defaults): embedding/generation model names, chunk size/overlap, batch size, top-k, ChromaDB path, data directory, Redis cache URL/TTL, log level, and RabbitMQ URL/queue name/RPC timeout.
@@ -137,18 +156,24 @@ Settings live in `config.py` (backed by `.env`, see `Settings` for defaults): em
 ```
 .
 ├── data/               # source .txt documents to index
+├── frontend/            # chat UI ("Dory"), served as static files by api.py
+│   ├── index.html
+│   ├── style.css        # blue-toned theme, animated starfield background
+│   └── app.js           # chat logic + starfield canvas animation
 ├── rag/
 │   ├── chunker.py      # sentence-aware chunking with overlap
 │   ├── embedder.py     # batched embeddings via Gemini (document/query task types)
 │   ├── ingest.py        # shared indexing logic used by CLI and API
 │   ├── vector_store.py # ChromaDB storage/query/list/delete with metadata + dedup
-│   ├── cache.py         # Redis semantic cache for /ask responses
+│   ├── cache.py         # Redis semantic cache for /ask responses (first-turn only)
+│   ├── session.py       # Redis-backed per-session conversation history
 │   └── generator.py    # generates cited, grounded answers via Gemini
 ├── config.py            # centralized settings (pydantic-settings, reads .env)
 ├── logging_config.py    # structured JSON logging setup
 ├── rabbit.py              # async RabbitMQ RPC client used by api.py's /ask
 ├── worker.py             # RabbitMQ consumer: runs the embed/retrieve/generate pipeline
-├── api.py                # FastAPI app: /ask, /index, /sources endpoints
+├── api.py                # FastAPI app: /ask, /index, /sources endpoints + frontend/ static mount
 ├── main.py               # CLI: ingestion + Q&A loop
+├── tests/                # integration tests (see Testing section below)
 └── requirements.txt
 ```

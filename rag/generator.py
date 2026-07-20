@@ -1,5 +1,6 @@
 import logging
 import time
+from pathlib import Path
 
 from google import genai
 from google.genai import types
@@ -10,21 +11,7 @@ logger = logging.getLogger(__name__)
 
 client = genai.Client(api_key=settings.gemini_api_key)
 
-PROMPT_TEMPLATE = """Sən tələbələrə universitet seçimində kömək edən səmimi, isti münasibətli bir köməkçisən.
-
-Qaydalar:
-- Cavabı YALNIZ aşağıdakı mənbələrdəki məlumata əsasən ver.
-- Rəsmi, quru dillə yox, tələbə ilə söhbət edir kimi mehriban və anlaşıqlı tonda yaz.
-- Əgər mənbələrdə sualın cavabı yoxdursa, bunu səmimi şəkildə bildir, məsələn: "Təəssüf ki, bu barədə mənbələrdə məlumat tapa bilmədim."
-- Uyğun olduğu yerlərdə istifadə etdiyin mənbəni [1], [2] və s. şəklində qeyd et.
-- Cavabı Azərbaycan dilində yaz.
-
-Mənbələr:
-{context}
-
-Sual: {question}
-
-Cavab:"""
+PROMPT_TEMPLATE = (Path(__file__).parent / "prompt.md").read_text(encoding="utf-8")
 
 
 def _format_sources(context_chunks):
@@ -35,13 +22,41 @@ def _format_sources(context_chunks):
     return "\n\n".join(lines)
 
 
-def generate_answer(question, context_chunks, temperature=None):
+def _format_history(history):
+    if not history:
+        return ""
+    lines = ["\nƏvvəlki söhbət:"]
+    for turn in history:
+        speaker = "Tələbə" if turn.get("role") == "user" else "Köməkçi"
+        lines.append(f"{speaker}: {turn.get('content', '')}")
+    return "\n".join(lines) + "\n"
+
+
+def _greeting_rule(history):
+    if history:
+        return "Bu, söhbətin davamıdır — YENİDƏN salamlaşma, 'necəsən' demə, birbaşa suala cavab ver."
+    return "Bu, söhbətin ilk mesajıdır — istəsən qısa və təbii şəkildə salamlaya bilərsən."
+
+
+def _total_sources_note(total_sources):
+    if not total_sources:
+        return ""
+    return f"Bazada ümumilikdə {total_sources} universitet var."
+
+
+def generate_answer(question, context_chunks, history=None, temperature=None, total_sources=None):
     if not context_chunks:
         logger.warning("generate_answer_no_context")
         return "Təəssüf ki, bu barədə mənbələrdə məlumat tapa bilmədim."
 
     context = _format_sources(context_chunks)
-    prompt = PROMPT_TEMPLATE.format(context=context, question=question)
+    prompt = PROMPT_TEMPLATE.format(
+        context=context,
+        question=question,
+        history=_format_history(history),
+        greeting_rule=_greeting_rule(history),
+        total_sources_note=_total_sources_note(total_sources),
+    )
 
     start = time.perf_counter()
     response = client.models.generate_content(

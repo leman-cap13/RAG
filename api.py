@@ -5,12 +5,14 @@ import uuid
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, HTTPException, Request
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from config import settings
 from logging_config import request_id_var, setup_logging
 from rag.cache import clear_cache, get_cached_answer
 from rag.ingest import index_all
+from rag.session import append_turn, get_history
 from rag.vector_store import delete_source, list_sources
 from rabbit import rabbit_client
 
@@ -65,6 +67,7 @@ async def request_logging_middleware(request: Request, call_next):
 class AskRequest(BaseModel):
     question: str
     top_k: int = settings.top_k
+    session_id: str | None = None
 
 
 class SourceChunk(BaseModel):
@@ -77,6 +80,7 @@ class AskResponse(BaseModel):
     answer: str
     sources: list[str]
     context: list[SourceChunk]
+    session_id: str
 
 
 class IndexResult(BaseModel):
@@ -105,11 +109,19 @@ async def ask(req: AskRequest):
     if not req.question.strip():
         raise HTTPException(status_code=422, detail="question boş ola bilməz")
 
-    logger.debug("ask_received", extra={"question": req.question, "top_k": req.top_k})
+    session_id = req.session_id or str(uuid.uuid4())
+    history = get_history(session_id)
 
-    cached = get_cached_answer(req.question, req.top_k)
-    if cached:
-        return AskResponse(**cached)
+    logger.debug(
+        "ask_received",
+        extra={"question": req.question, "top_k": req.top_k, "session_id": session_id, "history_turns": len(history)},
+    )
+
+    if not history:
+        cached = get_cached_answer(req.question, req.top_k)
+        if cached:
+            append_turn(session_id, req.question, cached["answer"])
+            return AskResponse(**cached, session_id=session_id)
 
     depth = await rabbit_client.queue_depth()
     if depth >= settings.rabbitmq_max_queue_depth:
@@ -118,7 +130,7 @@ async def ask(req: AskRequest):
 
     try:
         result = await rabbit_client.call(
-            {"question": req.question, "top_k": req.top_k},
+            {"question": req.question, "top_k": req.top_k, "history": history},
             correlation_id=request_id_var.get(),
         )
     except asyncio.TimeoutError:
@@ -129,7 +141,8 @@ async def ask(req: AskRequest):
         logger.error("ask_worker_error", extra={"error": result["error"]})
         raise HTTPException(status_code=502, detail="Sual emalı zamanı xəta baş verdi")
 
-    return AskResponse(**result)
+    append_turn(session_id, req.question, result["answer"])
+    return AskResponse(**result, session_id=session_id)
 
 
 @app.get("/sources", response_model=list[str])
@@ -145,3 +158,6 @@ def remove_source(filename: str):
     logger.info("source_deleted", extra={"file": filename, "deleted_chunks": deleted})
     clear_cache()
     return {"file": filename, "deleted_chunks": deleted}
+
+
+app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")

@@ -24,6 +24,9 @@ class Settings(BaseSettings):
     cache_ttl: int = 3600
     cache_similarity_threshold: float = 0.15
 
+    session_ttl: int = 1800
+    max_history_turns: int = 6
+
     log_level: str = "INFO"
     log_format: str = "text"  # "text" for readable local/dev logs, "json" for prod log aggregators
 

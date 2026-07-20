@@ -4,3 +4,68 @@ FAKTLAR:
 
 
 İXTİSASLAR:
+
+Bakalavr səviyyəsi (5 ixtisas, cəmi 190 dövlət sifarişli yer):
+- Kompüter elmləri — 60 yer
+- Kimya mühəndisliyi — 40 yer
+- Neft və qaz mühəndisliyi — 30 yer
+- Geologiya və geofizika mühəndisliyi — 30 yer
+- Kimya — 30 yer
+Bütün bakalavr proqramları tam dövlət sifarişi (pulsuz) əsasında, əyani formada təhsil təklif edir.
+
+Magistratura səviyyəsi (4 ixtisas, cəmi 110 dövlət sifarişli yer):
+- Fiziki kimya / Kimya mühəndisliyi
+- Data Elmi və Süni İntellekt (Applied Computer Science — Big Data & AI)
+- Geofizika mühəndisliyi / Yer elmləri (Geosciences)
+- Su Ehtiyatları və İdarəetmə
+
+Doktorantura (PhD) səviyyəsində də təhsil və tədqiqat imkanları mövcuddur.
+
+TARİXÇƏ:
+
+Azərbaycan-Fransız Universitetinin (UFAZ) yaradılması ideyası Azərbaycan və Fransa prezidentlərinin təşəbbüsü ilə irəli sürülüb. 12 may 2014-cü ildə Fransa Prezidenti Fransua Ollandın Azərbaycana səfəri zamanı iki ölkənin təhsil nazirləri arasında universitetlərarası əməkdaşlığın gücləndirilməsinə həsr olunmuş niyyət məktubu (Letter of intent) imzalanıb. 25 aprel 2015-ci ildə Ollandın Azərbaycana ikinci rəsmi səfəri zamanı təhsil nazirləri arasında ikinci niyyət məktubu imzalanıb.
+
+İyun 2016-cı ildə Azərbaycan Prezidentinin sərəncamı ilə UFAZ-ın yaradılması rəsmiləşdirilib. Universitet Azərbaycan Dövlət Neft və Sənaye Universiteti (ADNSU) ilə Strasburq Universiteti (Unistra) arasında birgə layihə kimi qurulub, sonradan Rennes 1 Universiteti də tərəfdaş kimi qoşulub. Tədris fəaliyyətinə 2016-cı ilin sentyabrında, ilkin mərhələdə ADNSU-nun kampusunda başlanılıb.
+
+Bakı şəhəri, Nizami küçəsi 183 ünvanında yerləşən, Azərbaycan Təhsil Nazirliyi tərəfindən əsaslı təmir olunmuş tarixi bina UFAZ-ın daimi tədris kampusuna çevrilib və 15 sentyabr 2017-ci ildə rəsmi şəkildə açılıb.
+
+Vazeh Əsgərov 2016-cı ilin dekabrından 2023-cü ilədək UFAZ-ın icraçı direktoru vəzifəsində çalışıb; 2023-cü ilin iyul ayında isə ADNSU-nun rektoru təyin olunub.
+
+FAKÜLTƏLƏR VƏ İNSTİTUTLAR:
+
+UFAZ klassik fakültə strukturu əvəzinə bakalavr və magistratura akademik proqramları üzrə təşkil olunub (yuxarıdakı İXTİSASLAR bölməsinə bax). Tədris prosesi Strasburq Universiteti və Rennes 1 Universitetinin tərtib etdiyi kurikulumlar əsasında aparılır və dərslər ingilis dilində keçirilir. Bakalavr pilləsində ilk il "hazırlıq ili" (foundation year) rolunu oynayır və Fransanın 3 illik, Azərbaycanın isə 4 illik bakalavriat sistemlərini uzlaşdırmaq məqsədi daşıyır.
+
+KAMPUS VƏ İNFRASTRUKTUR:
+
+Əsas kampus Bakı şəhəri, Nizami küçəsi 183 ünvanında, metro stansiyasına yaxın tarixi binada yerləşir.
+
+2018-ci ildə istifadəyə verilmiş SP2 laboratoriya binası təxminən 2 500 kv.m sahəni əhatə edir, 6 mərtəbədən ibarətdir və Strasburq Universitetinin standartlarına uyğun təchiz olunub. Bu binada aşağıdakı laboratoriyalar fəaliyyət göstərir: 1 kimya mühəndisliyi laboratoriyası, 1 ümumi kimya laboratoriyası, 1 analitik kimya laboratoriyası, 1 üzvi kimya laboratoriyası, 4 fizika laboratoriyası və 2 İKT (informasiya-kommunikasiya texnologiyaları) laboratoriyası. Laboratoriyalarda İCP-MS (İnduktiv Əlaqəli Plazma-Kütlə Spektrometriyası) sistemi kimi müasir elmi tədqiqat avadanlığı da mövcuddur.
+
+TƏLƏBƏ VƏ MÜƏLLİM HEYƏTİ:
+
+UFAZ-da hazırda 800-dən çox tələbə təhsil alır. Akademik heyət Fransa və Azərbaycandan olan 70-dən çox müəllimdən ibarətdir. Tələbələrin 80%-dən çoxu dövlət təqaüdü hesabına tamamilə pulsuz təhsil alır.
+
+BEYNƏLXALQ ƏMƏKDAŞLIQ:
+
+UFAZ üç quruculuq tərəfdaşı əsasında fəaliyyət göstərir: Azərbaycan Dövlət Neft və Sənaye Universiteti (ADNSU), Strasburq Universiteti (UNISTRA, Fransa) və Rennes 1 Universiteti (Fransa). Məzunlar təhsili başa vurduqdan sonra həm Azərbaycan (ADNSU), həm də Fransa (Strasburq və ya Rennes 1 Universiteti) tərəfindən verilən ikili milli diplom alırlar, bu da beynəlxalq tanınmanı artırır.
+
+Hər il ən yaxşı nəticə göstərən 40 tələbə Strasburqda keçirilən iki həftəlik yay məktəbinə (Summer School) qatılmaq hüququ qazanır. Tələbələr həmçinin VISTAR kimi beynəlxalq proqramlara qəbul olunur, müəllim heyəti isə mütəmadi olaraq Fransaya elmi ezamiyyət səfərləri həyata keçirir.
+
+ELMİ TƏDQİQAT:
+
+Universitetdə Tədqiqat Departamenti fəaliyyət göstərir; bu struktur elmi strategiyanın müəyyənləşdirilməsi, tədqiqat proqramlarının əlaqələndirilməsi, tədqiqat komandalarının formalaşdırılması, laboratoriyalarla bağlı sazişlər və texnologiya transferi siyasəti kimi sahələri əhatə edir. Əsas tədqiqat istiqamətləri: kimya və kimya mühəndisliyi, geofizika/yer elmləri və data elmi/süni intellektdir. Doktorantura (PhD) səviyyəsində tədqiqatlar aparılır və nəticələr elmi məqalələr şəklində dərc olunur.
+
+TƏLƏBƏ HƏYATI:
+
+UFAZ-da Tələbə Şurası (Student Council) və müxtəlif tələbə klubları fəaliyyət göstərir. Karyera Mərkəzi tələbələrə peşəkar inkişaf dəstəyi göstərir və məzunlarla əlaqələri qoruyub saxlayır. Universitetin fəal Məzunlar Şəbəkəsi (alumni network) mövcuddur. Strasburqda keçirilən yay məktəbi və Fransaya elmi-tədqiqat səfərləri tələbə həyatının mühüm hissəsini təşkil edir.
+
+QƏBUL VƏ TƏHSİL HAQQI:
+
+Qəbul Dövlət İmtahan Mərkəzinin (DİM) nəticələri əsasında aparılır; ingilis dili bilikləri isə Strasburq Universitetinin təşkil etdiyi imtahanlar vasitəsilə əlavə olaraq yoxlanılır. Bakalavr səviyyəsində 190, magistratura səviyyəsində isə 110 dövlət sifarişli (tamamilə pulsuz) yer mövcuddur. Ödənişli (kontrakt) əsasda təhsil almaq istəyənlər üçün illik təhsil haqqı ixtisas qrupundan asılı olaraq təxminən 2 200–2 500 manat arasında dəyişir. ADNSU-dan (Azərbaycan Dövlət Neft və Sənaye Universiteti) tələbə köçürülməsi, eləcə də xarici vətəndaşlar üçün ayrıca qəbul kateqoriyaları mövcuddur.
+
+ƏLAQƏ:
+
+Ünvan: Bakı şəhəri, Nizami küçəsi 183, AZ1000
+Telefon: (+994 12) 599 00 74
+E-poçt: info@ufaz.az
+Veb-sayt: www.ufaz.az
