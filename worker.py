@@ -12,7 +12,7 @@ from logging_config import request_id_var, setup_logging
 from rag.cache import set_cached_answer
 from rag.embedder import embed_query
 from rag.generator import generate_answer
-from rag.vector_store import query
+from rag.vector_store import list_sources, query
 
 setup_logging(settings.log_level, settings.log_format)
 logger = logging.getLogger(__name__)
@@ -23,6 +23,7 @@ async def handle_message(channel: AbstractChannel, message: AbstractIncomingMess
         payload = json.loads(message.body)
         question = payload["question"]
         top_k = payload["top_k"]
+        history = payload.get("history") or []
 
         if not message.reply_to:
             logger.warning("job_skipped_no_reply_to", extra={"top_k": top_k})
@@ -35,11 +36,16 @@ async def handle_message(channel: AbstractChannel, message: AbstractIncomingMess
 
             qv = embed_query(question)
             context = query(qv, top_k=top_k)
-            answer = generate_answer(question, context)
+            total_sources = len(list_sources())
+            answer = generate_answer(question, context, history=history, total_sources=total_sources)
             sources = sorted({c["source"] for c in context if c.get("source")})
 
             result = {"answer": answer, "sources": sources, "context": context}
-            set_cached_answer(question, top_k, result)
+            if not history:
+                # Cached answers aren't scoped to a conversation, so only cache
+                # context-free (first-turn) answers to avoid leaking one chat's
+                # context into an unrelated session that asks the same question.
+                set_cached_answer(question, top_k, result)
             duration_ms = round((time.perf_counter() - start) * 1000, 2)
             logger.info(
                 "job_completed",
